@@ -83,9 +83,23 @@ docker run --rm --init -it --name aws-iot-greengrass \
 ```
 
 
-## Some device sample (deferred)
+## Some functional sample
 
-Define a device and some pre-processing on it's data for publishing to an external MQTT Broker.
+Define things and lambdas for publishing pre-processed data to an external system (e.g. MQTT Broker).
+
+### Prepare the Greengrass group
+
+When running Greengrass with docker, the lambda execution environment must be set to "No container" as the containerization option. Change this in the created IoT Greengrass group settings.
+
+![Greengrass Lambda containerization option](images/greengrass-lambda-containerization-option.jpg)
+
+
+
+### Make a thing and provide a function
+
+
+### Publish to an external resource
+
 
 ## Result
 

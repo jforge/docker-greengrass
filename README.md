@@ -43,7 +43,15 @@ docker pull 216483018798.dkr.ecr.us-west-2.amazonaws.com/aws-iot-greengrass:late
 
 Greengrass doesn't work without a greengrass group and core. For configuration of the pulled image for a properly set up container certificates and the core configuration file is required (can be ommitted when configuring and download IoT core via amazon console).
 
-Login to AWS console and switch to [IoT Greengrass](https://eu-central-1.console.aws.amazon.com/iot/home?region=eu-central-1#/greengrassIntro)
+Login to AWS console and switch to [IoT Greengrass](https://eu-central-1.console.aws.amazon.com/iot/home?region=eu-central-1#/greengrassIntro).
+
+Use the workflow to create a Group ```cybus_universe```. This finally produces:
+- A new Greengrass group
+- Provisioning of a new core for this group in the IoT registry
+- Create of a public-private key pair for the core.
+- Generation of a new security certificate for the core using the key
+- Adding a default security policy to the certificate.
+
 
 
 

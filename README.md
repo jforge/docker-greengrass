@@ -2,7 +2,7 @@
 
 ## AWS IoT Greengrass with Docker
 
-AWS IoT Greengrass provides cloud capabilities to a local environment. It may be qualified as a AWS Lambda runtime environment with prebuilt connectos for serverless apllications. Edge computing requirements can be supported as far as local resources can be made accessible for these local devices. 
+AWS IoT Greengrass provides cloud capabilities to a local environment. It is qualified as a containerized AWS Lambda runtime environment with prebuilt connectos for serverless apllications. Edge computing requirements can be supported as far as local resources can be made accessible for these local devices. 
 
 ## Objective
 

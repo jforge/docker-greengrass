@@ -45,14 +45,42 @@ Greengrass doesn't work without a greengrass group and core. For configuration o
 
 Login to AWS console and switch to [IoT Greengrass](https://eu-central-1.console.aws.amazon.com/iot/home?region=eu-central-1#/greengrassIntro).
 
-Use the workflow to create a Group ```cybus_universe```. This finally produces:
+Use the workflow to create a Group ```cybus_universe```. 
+
+This finally produces:
 - A new Greengrass group
-- Provisioning of a new core for this group in the IoT registry
-- Create of a public-private key pair for the core.
-- Generation of a new security certificate for the core using the key
-- Adding a default security policy to the certificate.
+- A new core for this group in the IoT registry
+- A public-private key pair for the core.
+- A new security certificate for the core using the key
+- A default security policy added to the certificate.
+
+The final artifact to be downloaded is a gzipped tar containing the configuration file and certificates.
 
 
+### Configure and startup a Greengrass docker container
+
+Extract the archive downloaded above to a known location
+```
+export gg_path=~/opt/greengrass/
+mkdir $gg_path
+tar xvzf <hashcode>-setup.tar.gz -C $gg_path
+```
+
+Root CA certificates are required to properly enable devices to connect to AWS IoT over TLS.
+```
+cd $gg_path
+wget -O root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem
+```
+
+Start the container using the certificates and configuration file:
+```
+docker run --rm --init -it --name aws-iot-greengrass \
+--entrypoint /greengrass-entrypoint.sh \
+-v $gg_path/certs:/greengrass/certs \
+-v $gg_path/config:/greengrass/config \
+-p 8883:8883 \
+216483018798.dkr.ecr.us-west-2.amazonaws.com/aws-iot-greengrass:latest
+```
 
 
 ## Some device sample (deferred)

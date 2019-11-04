@@ -91,7 +91,7 @@ Define things and lambdas for publishing pre-processed data to an external syste
 
 When running Greengrass with docker, the lambda execution environment must be set to "No container" as the containerization option. Change this in the created IoT Greengrass group settings.
 
-![Greengrass Lambda containerization option](images/greengrass-lambda-containerization-option.jpg)
+![Greengrass Lambda containerization option](images/greengrass-lambda-containerization.png)
 
 
 
